@@ -12,13 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LianFinaleProject">
         <activity
-            android:name=".LogIn"
+            android:name=".screens.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".screens.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screens.Odot"
+            android:exported="false" />
+        <activity
+            android:name=".screens.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.LogIn"
+            android:exported="false" />
+        <activity
+            android:name=".screens.SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".screens.splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

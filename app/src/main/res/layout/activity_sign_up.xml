@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    tools:context=".screens.SignUp">
+
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="411dp"
@@ -26,78 +28,79 @@
             app:srcCompat="@drawable/logowhite" />
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="226dp"
         android:layout_height="57dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="יצירת חשבון חדש"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="92dp" />
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/etUfname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:hint="שם פרטי"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText2"
-        app:layout_constraintStart_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/etUlname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="שם משפחה"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
-        app:layout_constraintStart_toStartOf="@+id/editTextPhone"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintEnd_toEndOf="@+id/etUfname"
+        app:layout_constraintStart_toStartOf="@+id/etUfname"
+        app:layout_constraintTop_toBottomOf="@+id/etUfname" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/etUphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:gravity="right"
         android:hint="מספר טלפון"
         android:inputType="phone"
-        android:gravity="right"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintEnd_toEndOf="@+id/etUlname"
+        app:layout_constraintStart_toStartOf="@+id/etUlname"
+        app:layout_constraintTop_toBottomOf="@+id/etUlname" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etUemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="אימייל"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintEnd_toEndOf="@+id/etUphone"
+        app:layout_constraintStart_toStartOf="@+id/etUphone"
+        app:layout_constraintTop_toBottomOf="@+id/etUphone" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etUpassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:gravity="right"
         android:hint="סיסמה"
         android:inputType="textPassword"
-        android:gravity="right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintEnd_toEndOf="@+id/etUemail"
+        app:layout_constraintStart_toStartOf="@+id/etUemail"
+        app:layout_constraintTop_toBottomOf="@+id/etUemail" />
 
     <Button
         android:id="@+id/btnSighUp"
@@ -109,31 +112,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUpassword"
+        app:layout_constraintVertical_bias="0.927" />
 
     <Button
-        android:id="@+id/btnhome"
+        android:id="@+id/btnGoHome"
         android:layout_width="38dp"
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/home"
-        android:onClick="btnhome"
+        android:onClick="btnGoHome"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <EditText
-        android:id="@+id/editTextText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Id"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextText"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

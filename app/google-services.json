@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "41668640384",
+    "firebase_url": "https://lianfinaleproject-default-rtdb.firebaseio.com",
+    "project_id": "lianfinaleproject",
+    "storage_bucket": "lianfinaleproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41668640384:android:df31acf62453e6778fb065",
+        "android_client_info": {
+          "package_name": "com.lian.lianfinaleproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHdiANCC9u-K8zusdKYegvoLMj2weMaR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

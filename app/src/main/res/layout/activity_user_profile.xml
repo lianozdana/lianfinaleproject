@@ -5,9 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".screens.MainActivity">
-
+    tools:context=".screens.UserProfileActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -30,49 +28,29 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_main_to_signup"
-        android:layout_width="265dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="100dp"
-        android:background="#00BCD4"
-        android:backgroundTint="#00BCD4"
-        android:text="הרשמה"
+        android:id="@+id/btnhome"
+        android:layout_width="38dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/home"
+        android:onClick="btnhome"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <Button
-        android:id="@+id/btn_main_to_login"
-        android:layout_width="265dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="24dp"
-        android:background="#00BCD4"
-        android:text="התחברות"
-        app:layout_constraintEnd_toEndOf="@+id/btn_main_to_signup"
-        app:layout_constraintStart_toStartOf="@+id/btn_main_to_signup"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_to_signup" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="265dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="70dp"
-        android:background="#00BCD4"
-        android:text="אודות"
-        app:layout_constraintEnd_toEndOf="@+id/btn_main_to_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_main_to_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main_to_login" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="הרשימה החכמה"
-        android:textSize="30dp"
+        android:text="החשבון של "
+        android:textSize="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

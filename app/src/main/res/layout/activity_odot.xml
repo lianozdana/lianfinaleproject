@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.Odot">
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="411dp"
+        android:layout_height="101dp"
+        android:background="#00BCD4"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="116dp"
+            android:layout_height="81dp"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/logowhite" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnhome"
+        android:layout_width="38dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/home"
+        android:onClick="btnhome"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="261dp"
+        android:layout_height="49dp"
+        android:text="דף אודות"
+        android:gravity="center"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="411dp"
+        android:layout_height="556dp"
+        android:text="מטרות האפליקציה:\n
+לרכז את כל הצרכים של הבית ברשימת קניות אחת ומשותפת, שמתעדכנת בזמן אמת אצל כל המשתמשים.
+
+לשפר את הסנכרון בין דיירי הבית ולמנוע כפילויות או שכחת מוצרים.\n
+
+להפוך את הרשימה למסודרת וברורה באמצעות תמונות, קטגוריות וסימון עדיפות. בלי ידע טכנולוגי.
+
+לאפשר קבלת התראות על כל שינוי ברשימה.\n\nאיך משתמשים באפליקציה:\n
+נכנסים לאפליקציה - מסך פתיחה עם אפשרות להתחבר או להירשם.\n
+
+הרשמה/התחברות - יצירת משתמש חדש או כניסה לקבוצה קיימת.\n
+
+מסך ראשי- רואים את רשימת הקניות, מסמנים מה נקנה ומוחקים מוצרים במידת הצורך.\n
+
+הוספת מוצר - לוחצים “+”, ממלאים שם, קטגוריה, תמונה ועדיפות — ושומרים לרשימה.\n
+
+קטגוריות - בוחרים קטגוריה לראות רק את המוצרים ששייכים אליה.\n
+
+ התראות - רואים מי הוסיף/סימן/מחק מוצר ברשימה."
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
