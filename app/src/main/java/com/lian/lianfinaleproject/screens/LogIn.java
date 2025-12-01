@@ -1,6 +1,9 @@
 package com.lian.lianfinaleproject.screens;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +20,7 @@ import com.lian.lianfinaleproject.utils.SharedPreferencesUtil;
 public class LogIn extends AppCompatActivity {
 
     EditText editTextEmail,editTextPassword;
+    Button btnLogIn;
 
     String emailUserInput, passwordUserInput;
     DatabaseService databaseService;
@@ -36,11 +40,9 @@ public class LogIn extends AppCompatActivity {
 
         editTextPassword=findViewById(R.id.editTextPassword);
         editTextEmail=findViewById(R.id.editTextEmail);
+        btnLogIn=findViewById(R.id.btnLogIn);
 
-//        emailUserInput=editTextEmail.getText().toString()+"";
-//        passwordUserInput=editTextPassword.getText().toString()+"";
 
-//        loginUser(emailUserInput, passwordUserInput);
 
     }
 
@@ -62,7 +64,12 @@ public class LogIn extends AppCompatActivity {
         databaseService.getUser(userId, new DatabaseService.DatabaseCallback<User>() {
             @Override
             public void onCompleted(User currentUser) {
-                SharedPreferencesUtil.saveUser(LogIn.this, currentUser);
+              SharedPreferencesUtil.saveUser(LogIn.this, currentUser);
+
+
+                Intent go=new Intent(LogIn.this,CartActivity.class);
+                startActivity(go);
+
             }
 
             @Override
@@ -70,5 +77,12 @@ public class LogIn extends AppCompatActivity {
                 SharedPreferencesUtil.signOutUser(LogIn.this);
             }
         });
+    }
+
+    public void btnGoLogIn(View view) {
+        emailUserInput=editTextEmail.getText().toString()+"";
+        passwordUserInput=editTextPassword.getText().toString()+"";
+
+        loginUser(emailUserInput, passwordUserInput);
     }
 }

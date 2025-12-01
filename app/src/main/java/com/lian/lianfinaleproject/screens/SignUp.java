@@ -105,6 +105,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
                 SharedPreferencesUtil.saveUser(SignUp.this, user);
 
+
                 /// Redirect to MainActivity and clear back stack to prevent user from going back to register screen
                 Intent mainIntent = new Intent(SignUp.this, CartActivity.class);
                 /// clear the back stack (clear history) and start the MainActivity
