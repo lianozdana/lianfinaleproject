@@ -5,9 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.CartActivity">
-
-
+    tools:context=".screens.AddItem">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -27,7 +25,6 @@
 
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/logowhite" />
-
     </LinearLayout>
 
     <TextView
@@ -36,18 +33,38 @@
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="עגלת הקניות שלי"
+        android:text="הוספת פריטים לרשימה"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-    <Button
-        android:id="@+id/btn_main_to_login"
-        android:layout_width="139dp"
-        android:layout_height="42dp"
-        android:background="#00BCD4"
-        android:text="הוספת מוצר"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="184dp" />
+    <EditText
+        android:id="@+id/edItemN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="שם המוצר"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <Spinner
+        android:id="@+id/typespinner"
+        android:layout_width="246dp"
+        android:layout_height="34dp"
+        android:gravity="right"
+        android:entries="@array/itemtype"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <EditText
+        android:id="@+id/edCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="סוג חברה"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="315dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

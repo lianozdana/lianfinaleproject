@@ -29,12 +29,12 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-       if (SharedPreferencesUtil.isUserLoggedIn(MainActivity.this)) {
-            Intent intent = new Intent(MainActivity.this, CartActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-      }
+      // if (SharedPreferencesUtil.isUserLoggedIn(MainActivity.this)) {
+        //    Intent intent = new Intent(MainActivity.this, CartActivity.class);
+        //    startActivity(intent);
+        //      finish();
+     //     return;
+     // }
 
         btnSignUp = findViewById(R.id.btn_main_to_signup);
         btnLogin = findViewById(R.id.btn_main_to_login);

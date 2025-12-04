@@ -5,9 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.CartActivity">
-
-
+    tools:context=".screens.UserActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -27,27 +25,6 @@
 
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/logowhite" />
-
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="237dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="עגלת הקניות שלי"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <Button
-        android:id="@+id/btn_main_to_login"
-        android:layout_width="139dp"
-        android:layout_height="42dp"
-        android:background="#00BCD4"
-        android:text="הוספת מוצר"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="184dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

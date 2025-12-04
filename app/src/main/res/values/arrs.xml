@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="itemtype">
+        <item>תבחר קטגוריה</item>
+        <item> ירקות ופירות</item>
+        <item>מוצרי חלב</item>
+        <item>חומרי ניקיון</item>
+        <item>מוצרי בשר</item>
+        <item>חטיפים</item>
+        <item>שתייה</item>
+        <item>דגני בוקר</item>
+        <item>תבלינים</item>
+        <item>מאפים</item>
+        <item>אחר</item>
+
+    </string-array>
+</resources>
