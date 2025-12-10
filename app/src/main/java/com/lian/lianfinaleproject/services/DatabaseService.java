@@ -41,7 +41,7 @@ public class DatabaseService {
     ///
     /// @see DatabaseService#readData(String)
     private static final String USERS_PATH = "users",
-            FOODS_PATH = "items",
+            ITEMS_PATH = "items",
             CARTS_PATH = "groups";
 
     /// callback interface for database operations
@@ -332,57 +332,8 @@ public class DatabaseService {
         deleteData(USERS_PATH + "/" + uid, callback);
     }
 
-    /// get a user by email and password
-    ///
-    /// @param email    the email of the user
-    /// @param password the password of the user
-    /// @param callback the callback to call when the operation is completed
-    ///                            the callback will receive the user object
-    ///                          if the operation fails, the callback will receive an exception
-    /// @see DatabaseCallback
-    /// @see User
-    public void getUserByEmailAndPassword(@NotNull final String email, @NotNull final String password, @NotNull final DatabaseCallback<User> callback) {
-        readData(USERS_PATH).orderByChild("email").equalTo(email).get()
-                .addOnCompleteListener(task -> {
-                    if (!task.isSuccessful()) {
-                        Log.e(TAG, "Error getting data", task.getException());
-                        callback.onFailed(task.getException());
-                        return;
-                    }
-                    if (task.getResult().getChildrenCount() == 0) {
-                        callback.onFailed(new Exception("User not found"));
-                        return;
-                    }
-                    for (DataSnapshot dataSnapshot : task.getResult().getChildren()) {
-                        User user = dataSnapshot.getValue(User.class);
-                        if (user == null || !Objects.equals(user.getPassword(), password)) {
-                            callback.onFailed(new Exception("Invalid email or password"));
-                            return;
-                        }
 
-                        callback.onCompleted(user);
-                        return;
 
-                    }
-                });
-    }
-
-    /// check if an email already exists in the database
-    ///
-    /// @param email    the email to check
-    /// @param callback the callback to call when the operation is completed
-    public void checkIfEmailExists(@NotNull final String email, @NotNull final DatabaseCallback<Boolean> callback) {
-        readData(USERS_PATH).orderByChild("email").equalTo(email).get()
-                .addOnCompleteListener(task -> {
-                    if (!task.isSuccessful()) {
-                        Log.e(TAG, "Error getting data", task.getException());
-                        callback.onFailed(task.getException());
-                        return;
-                    }
-                    boolean exists = task.getResult().getChildrenCount() > 0;
-                    callback.onCompleted(exists);
-                });
-    }
 
     public void updateUser(@NotNull final User user, @Nullable final DatabaseCallback<Void> callback) {
         runTransaction(USERS_PATH + "/" + user.getId(), User.class, currentUser -> user, new DatabaseCallback<User>() {
@@ -416,7 +367,7 @@ public class DatabaseService {
     /// @see DatabaseCallback
     /// @see Item
     public void createNewItem(@NotNull final Item item, @Nullable final DatabaseCallback<Void> callback) {
-        writeData(FOODS_PATH + "/" + item.getId(), item, callback);
+        writeData(ITEMS_PATH + "/" + item.getId(), item, callback);
     }
 
     /// get a item from the database
@@ -428,7 +379,7 @@ public class DatabaseService {
     /// @see DatabaseCallback
     /// @see Item
     public void getItem(@NotNull final String itemId, @NotNull final DatabaseCallback<Item> callback) {
-        getData(FOODS_PATH + "/" + itemId, Item.class, callback);
+        getData(ITEMS_PATH + "/" + itemId, Item.class, callback);
     }
 
     /// get all the items from the database
@@ -440,7 +391,7 @@ public class DatabaseService {
     /// @see List
     /// @see Item
     public void getItemList(@NotNull final DatabaseCallback<List<Item>> callback) {
-        getDataList(FOODS_PATH, Item.class, callback);
+        getDataList(ITEMS_PATH, Item.class, callback);
     }
 
     /// generate a new id for a new item in the database
@@ -449,7 +400,7 @@ public class DatabaseService {
     /// @see #generateNewId(String)
     /// @see Item
     public String generateItemId() {
-        return generateNewId(FOODS_PATH);
+        return generateNewId(ITEMS_PATH);
     }
 
     /// delete a item from the database
@@ -457,7 +408,7 @@ public class DatabaseService {
     /// @param itemId   the id of the item to delete
     /// @param callback the callback to call when the operation is completed
     public void deleteItem(@NotNull final String itemId, @Nullable final DatabaseCallback<Void> callback) {
-        deleteData(FOODS_PATH + "/" + itemId, callback);
+        deleteData(ITEMS_PATH + "/" + itemId, callback);
     }
 
     // endregion item section

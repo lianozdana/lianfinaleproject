@@ -25,6 +25,7 @@
 
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/logowhite" />
+
     </LinearLayout>
 
     <TextView
@@ -42,29 +43,112 @@
         android:id="@+id/edItemN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+
         android:ems="10"
         android:hint="שם המוצר"
+
+
         android:inputType="text"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="198dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Spinner
         android:id="@+id/typespinner"
         android:layout_width="246dp"
         android:layout_height="34dp"
-        android:gravity="right"
+        android:layout_marginTop="15dp"
+
         android:entries="@array/itemtype"
-        tools:layout_editor_absoluteX="136dp"
-        tools:layout_editor_absoluteY="264dp" />
+        android:gravity="right"
+        app:layout_constraintEnd_toEndOf="@+id/edItemN"
+        app:layout_constraintTop_toBottomOf="@+id/edItemN" />
 
     <EditText
         android:id="@+id/edCompany"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="סוג חברה"
+
+
         android:inputType="text"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="315dp" />
+        app:layout_constraintEnd_toEndOf="@+id/typespinner"
+        app:layout_constraintTop_toBottomOf="@+id/typespinner" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="105dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="כמות"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/edCompany"
+        app:layout_constraintTop_toBottomOf="@+id/edCompany" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="126dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnAddFromCamera"
+        android:layout_width="106dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="5dp"
+        android:background="#00BCD4"
+        android:text="מצלמה"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toEndOf="@+id/btnAddFromGallery"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/btnAddThisItem"
+        android:layout_width="188dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="28dp"
+        android:background="#00BCD4"
+        android:text="הוספת מוצר"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="146dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="84dp"
+        android:gravity="center"
+        android:text="הוספת תמונה"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+
+    <Button
+        android:id="@+id/btnAddFromGallery"
+        android:layout_width="106dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+
+        android:background="#00BCD4"
+        android:text="גלריה"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

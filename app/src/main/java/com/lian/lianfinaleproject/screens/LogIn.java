@@ -1,6 +1,7 @@
 package com.lian.lianfinaleproject.screens;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,14 @@ public class LogIn extends AppCompatActivity {
     String emailUserInput, passwordUserInput;
     DatabaseService databaseService;
 
+    SharedPreferences sharedPreferences;
+
+    public static final String myPrefSTRING="myPref";
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +45,23 @@ public class LogIn extends AppCompatActivity {
             return insets;
         });
 
+
+        sharedPreferences=getSharedPreferences(myPrefSTRING,MODE_PRIVATE);
+
+        emailUserInput=sharedPreferences.getString("email","");
+        passwordUserInput=sharedPreferences.getString("password","");
+
+
+
         databaseService = DatabaseService.getInstance();
 
         editTextPassword=findViewById(R.id.editTextPassword);
         editTextEmail=findViewById(R.id.editTextEmail);
         btnLogIn=findViewById(R.id.btnLogIn);
 
+
+        editTextEmail.setText(emailUserInput);
+        editTextPassword.setText(passwordUserInput);
 
 
     }
@@ -51,6 +71,12 @@ public class LogIn extends AppCompatActivity {
             @Override
             public void onCompleted(String userId) {
                 saveUserById(userId);
+
+
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("email", emailUserInput);
+                editor.putString("password", passwordUserInput);
+                editor.commit();
             }
 
             @Override

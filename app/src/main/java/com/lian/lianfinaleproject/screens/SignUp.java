@@ -1,6 +1,7 @@
 package com.lian.lianfinaleproject.screens;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,11 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private DatabaseService databaseService;
 
 
+    SharedPreferences sharedPreferences;
+
+    public static final String myPrefSTRING="myPref";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         });
 
         databaseService = DatabaseService.getInstance();
+        sharedPreferences=getSharedPreferences(myPrefSTRING,MODE_PRIVATE);
 
         /// get the views
         etUEmail = findViewById(R.id.etUemail);
@@ -104,6 +111,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                 Log.d(TAG, "createUserInDatabase: Redirecting to MainActivity");
 
                 SharedPreferencesUtil.saveUser(SignUp.this, user);
+
+
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("email", user.getEmail());
+                editor.putString("password", user.getPassword());
+                editor.commit();
 
 
                 /// Redirect to MainActivity and clear back stack to prevent user from going back to register screen

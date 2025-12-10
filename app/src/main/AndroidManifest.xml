@@ -36,6 +36,9 @@
             android:name=".screens.SignUp"
             android:exported="false" />
         <activity
+            android:name=".screens.AddItem"
+            android:exported="false" />
+        <activity
             android:name=".screens.splash"
             android:exported="true">
             <intent-filter>
