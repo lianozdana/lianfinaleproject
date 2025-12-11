@@ -1,5 +1,7 @@
 package com.lian.lianfinaleproject.model;
 
+import androidx.annotation.NonNull;
+
 public class User {
 
    protected String id;
@@ -9,14 +11,20 @@ public class User {
     protected String email;
     protected String password;
 
+    protected Cart cart;
 
-    public User(String id, String fname, String lname, String phone, String email, String password) {
+    public User() {
+        this.cart = new Cart();
+    }
+
+    public User(String id, String fname, String lname, String phone, String email, String password, Cart cart) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.phone = phone;
         this.email = email;
         this.password = password;
+        this.cart = cart;
     }
 
 
@@ -68,7 +76,12 @@ public class User {
         this.password = password;
     }
 
-    public User() {
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
 
@@ -81,9 +94,7 @@ public class User {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", cart=" + cart +
                 '}';
     }
-
-
-
 }

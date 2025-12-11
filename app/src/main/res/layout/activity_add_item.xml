@@ -32,9 +32,9 @@
         android:id="@+id/textView6"
         android:layout_width="237dp"
         android:layout_height="48dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="הוספת פריטים לרשימה"
+        android:text="הוספת פריטים לעגלה"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
@@ -43,13 +43,13 @@
         android:id="@+id/edItemN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="12dp"
+
 
         android:ems="10"
         android:hint="שם המוצר"
-
-
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -58,8 +58,8 @@
         android:id="@+id/typespinner"
         android:layout_width="246dp"
         android:layout_height="34dp"
-        android:layout_marginTop="15dp"
 
+        android:layout_marginTop="15dp"
         android:entries="@array/itemtype"
         android:gravity="right"
         app:layout_constraintEnd_toEndOf="@+id/edItemN"
@@ -71,15 +71,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="10"
+
+
         android:hint="סוג חברה"
-
-
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/typespinner"
         app:layout_constraintTop_toBottomOf="@+id/typespinner" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/edAmount"
         android:layout_width="105dp"
         android:layout_height="44dp"
         android:layout_marginTop="15dp"
@@ -93,60 +93,57 @@
         android:id="@+id/imageView"
         android:layout_width="126dp"
         android:layout_height="114dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginBottom="188dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnAddFromCamera"
         android:layout_width="106dp"
         android:layout_height="39dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+
         android:background="#00BCD4"
         android:text="מצלמה"
         app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toEndOf="@+id/btnAddFromGallery"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
         android:id="@+id/btnAddThisItem"
         android:layout_width="188dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="40dp"
         android:background="#00BCD4"
         android:text="הוספת מוצר"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="146dp"
         android:layout_height="36dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="הוספת תמונה"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/edAmount" />
 
     <Button
         android:id="@+id/btnAddFromGallery"
         android:layout_width="106dp"
         android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
 
+        android:layout_marginTop="20dp"
         android:background="#00BCD4"
         android:text="גלריה"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddFromCamera"
+        app:layout_constraintHorizontal_bias="0.364"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 

@@ -1,21 +1,23 @@
 package com.lian.lianfinaleproject.model;
 
+import androidx.annotation.NonNull;
+
 public class Item {
     protected String id;
     protected String name;
     protected String type;
     protected String pic;
     protected String company;
-    protected String size;
+    protected int amount;
     protected boolean isChecked;
 
-    public Item(String id, String name, String type, String pic, String company, String size, boolean isChecked) {
+    public Item(String id, String name, String type, String pic, String company, int amount, boolean isChecked) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.pic = pic;
         this.company = company;
-        this.size = size;
+        this.amount = amount;
         this.isChecked = isChecked;
     }
 
@@ -26,6 +28,7 @@ public class Item {
     public void setId(String id) {
         this.id = id;
     }
+
 
     public String getName() {
         return name;
@@ -59,12 +62,12 @@ public class Item {
         this.company = company;
     }
 
-    public String getSize() {
-        return size;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public boolean isChecked() {
@@ -78,6 +81,7 @@ public class Item {
     public Item() {
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Item{" +
@@ -86,7 +90,7 @@ public class Item {
                 ", type='" + type + '\'' +
                 ", pic='" + pic + '\'' +
                 ", company='" + company + '\'' +
-                ", size='" + size + '\'' +
+                ", size='" + amount + '\'' +
                 ", isChecked=" + isChecked +
                 '}';
     }

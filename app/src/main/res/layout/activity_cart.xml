@@ -54,4 +54,36 @@
         app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="408dp"
+        android:layout_height="463dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        tools:listitem="@layout/item_item_cart" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="306dp"
+        tools:layout_editor_absoluteY="672dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="674dp" />
+
+    <Button
+        android:id="@+id/bthUserProfile"
+        android:layout_width="46dp"
+        android:layout_height="44dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="119dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

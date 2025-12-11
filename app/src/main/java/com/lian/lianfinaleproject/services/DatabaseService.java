@@ -13,6 +13,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
+import com.lian.lianfinaleproject.model.Cart;
 import com.lian.lianfinaleproject.model.Group;
 import com.lian.lianfinaleproject.model.Item;
 import com.lian.lianfinaleproject.model.User;
@@ -335,8 +336,8 @@ public class DatabaseService {
 
 
 
-    public void updateUser(@NotNull final User user, @Nullable final DatabaseCallback<Void> callback) {
-        runTransaction(USERS_PATH + "/" + user.getId(), User.class, currentUser -> user, new DatabaseCallback<User>() {
+    public void updateUser(@NotNull final String userId,  UnaryOperator<User> function, @Nullable final DatabaseCallback<Void> callback) {
+        runTransaction(USERS_PATH + "/" + userId, User.class, function, new DatabaseCallback<User>() {
             @Override
             public void onCompleted(User object) {
                 if (callback != null) {
@@ -368,6 +369,7 @@ public class DatabaseService {
     /// @see Item
     public void createNewItem(@NotNull final Item item, @Nullable final DatabaseCallback<Void> callback) {
         writeData(ITEMS_PATH + "/" + item.getId(), item, callback);
+
     }
 
     /// get a item from the database
@@ -485,6 +487,20 @@ public class DatabaseService {
     }
 
     // endregion group section
+
+
+    /// create a new cart in the database
+    /// @param cart the cart object to create
+    /// @param callback the callback to call when the operation is completed
+    ///               the callback will receive void
+    ///              if the operation fails, the callback will receive an exception
+    /// @return void
+    /// @see DatabaseCallback
+    /// @see Cart
+    public void updateCart(@NotNull final Cart cart, String uid , @Nullable final DatabaseCallback<Void> callback) {
+        writeData(USERS_PATH +"/" + uid+"/cart", cart, callback);
+    }
+
 
 }
 
