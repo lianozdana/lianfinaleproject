@@ -43,7 +43,9 @@ public class DatabaseService {
     /// @see DatabaseService#readData(String)
     private static final String USERS_PATH = "users",
             ITEMS_PATH = "items",
-            CARTS_PATH = "groups";
+
+            CARTS_PATH = "userCart",
+            GROUPS_PATH = "groups";
 
     /// callback interface for database operations
     ///
@@ -426,7 +428,7 @@ public class DatabaseService {
     /// @see DatabaseCallback
     /// @see Group
     public void createNewGroup(@NotNull final Group group, @Nullable final DatabaseCallback<Void> callback) {
-        writeData(CARTS_PATH + "/" + group.getId(), group, callback);
+        writeData(GROUPS_PATH + "/" + group.getId(), group, callback);
     }
 
     /// get a group from the database
@@ -438,7 +440,7 @@ public class DatabaseService {
     /// @see DatabaseCallback
     /// @see Group
     public void getGroup(@NotNull final String groupId, @NotNull final DatabaseCallback<Group> callback) {
-        getData(CARTS_PATH + "/" + groupId, Group.class, callback);
+        getData(GROUPS_PATH + "/" + groupId, Group.class, callback);
     }
 
     /// get all the groups from the database
@@ -446,7 +448,7 @@ public class DatabaseService {
     /// @param callback the callback to call when the operation is completed
     ///                               the callback will receive a list of group objects
     public void getGroupList(@NotNull final DatabaseCallback<List<Group>> callback) {
-        getDataList(CARTS_PATH, Group.class, callback);
+        getDataList(GROUPS_PATH, Group.class, callback);
     }
 
     /// get all the groups of a specific user from the database
@@ -475,7 +477,7 @@ public class DatabaseService {
     /// @see #generateNewId(String)
     /// @see Group
     public String generateGroupId() {
-        return generateNewId(CARTS_PATH);
+        return generateNewId(GROUPS_PATH);
     }
 
     /// delete a group from the database
@@ -483,7 +485,7 @@ public class DatabaseService {
     /// @param groupId  the id of the group to delete
     /// @param callback the callback to call when the operation is completed
     public void deleteGroup(@NotNull final String groupId, @Nullable final DatabaseCallback<Void> callback) {
-        deleteData(CARTS_PATH + "/" + groupId, callback);
+        deleteData(GROUPS_PATH + "/" + groupId, callback);
     }
 
     // endregion group section
@@ -500,6 +502,21 @@ public class DatabaseService {
     public void updateCart(@NotNull final Cart cart, String uid , @Nullable final DatabaseCallback<Void> callback) {
         writeData(USERS_PATH +"/" + uid+"/cart", cart, callback);
     }
+
+
+
+    /// get a cart from the database
+    /// @param userId the id of the cart to get
+    /// @param callback the callback to call when the operation is completed
+    ///                the callback will receive the cart object
+    ///               if the operation fails, the callback will receive an exception
+    /// @return void
+    /// @see DatabaseCallback
+    /// @see Cart
+    public void getCart(String uid, @NotNull final DatabaseCallback<Cart> callback) {
+        getData( USERS_PATH+"/"+ uid+"/cart", Cart.class, callback);
+    }
+
 
 
 }

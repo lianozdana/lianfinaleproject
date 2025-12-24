@@ -175,6 +175,19 @@ public class AddItem extends AppCompatActivity {
                             Toast.makeText(AddItem.this, "Failed to add food", Toast.LENGTH_SHORT).show();
                         }
                     });
+
+
+                    databaseService.createNewItem(newItem, new DatabaseService.DatabaseCallback<Void>() {
+                        @Override
+                        public void onCompleted(Void aVoid) {
+
+                        }
+
+                        @Override
+                        public void onFailed(Exception e) {
+
+                        }
+                    });
                 }
 
 
