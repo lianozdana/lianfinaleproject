@@ -28,42 +28,53 @@
     </LinearLayout>
 
 
+    <Button
+        android:id="@+id/btn_go_to_mylist"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnGoToMyList"
+        android:text="הרשימה שלי"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="355dp"
-            android:layout_height="50dp"
-            android:text="הרשימה שלי"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="188dp" />
+    <Button
+        android:id="@+id/btn_my_grouplist"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnMyGroupList"
+        android:text="הרשימות המשותפות שלי"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_to_mylist" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="355dp"
-            android:layout_height="50dp"
-            android:text="הרשימות המשותפות שלי"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="285dp" />
+    <Button
+        android:id="@+id/btn_new_grouplist"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnNewGroupList"
+        android:text="צור רשימה משותפת חדשה"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_my_grouplist" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="355dp"
-            android:layout_height="50dp"
-            android:text="צור רשימה משותפת חדשה"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="398dp" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="355dp"
-            android:layout_height="50dp"
-            android:text=" היכנס לרשימה משותפת קיימת"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="490dp" />
+    <Button
+        android:id="@+id/bth_go_to_grouplist"
+        android:layout_width="355dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnGoToGroupList"
+        android:text=" היכנס לרשימה משותפת קיימת"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_new_grouplist" />
 
 
 

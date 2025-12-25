@@ -25,7 +25,7 @@ import com.lian.lianfinaleproject.services.DatabaseService;
 import java.util.ArrayList;
 
 public class CartActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnAddItem ;
+    Button btnAddItem ,btnGoBack;
 
     RecyclerView rcCartItems;
 
@@ -54,7 +54,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_cart);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom);
+            v.setPadding(0, 0, 0, systemBars.bottom);
             return insets;
 
 
@@ -117,5 +117,9 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void bthAddItem(View view) {
+    }
+
+    public void goback(View view) {
+        finish();
     }
 }

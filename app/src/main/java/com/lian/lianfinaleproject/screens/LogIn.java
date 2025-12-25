@@ -93,7 +93,7 @@ public class LogIn extends AppCompatActivity {
               SharedPreferencesUtil.saveUser(LogIn.this, currentUser);
 
 
-                Intent go=new Intent(LogIn.this,CartActivity.class);
+                Intent go=new Intent(LogIn.this,choice_list_or_grouplist.class);
                 startActivity(go);
 
             }

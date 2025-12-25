@@ -45,13 +45,13 @@
         android:id="@+id/btnAddItem"
         android:layout_width="139dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="30dp"
         android:background="#00BCD4"
-        android:text="הוספת מוצר"
         android:onClick="bthAddItem"
+        android:text="הוספת מוצר"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -65,27 +65,19 @@
         tools:listitem="@layout/item_item_cart" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="672dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="198dp"
-        tools:layout_editor_absoluteY="674dp" />
-
-    <Button
-        android:id="@+id/bthUserProfile"
-        android:layout_width="46dp"
-        android:layout_height="44dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="119dp" />
+        android:id="@+id/btn_go_back"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:background="@drawable/common_full_open_on_phone"
+        android:backgroundTint="#00BCD4"
+        android:onClick="goback"
+        android:text=""
+        android:textColor="#00BCD4"
+        app:layout_constraintBottom_toTopOf="@+id/rcCartItems"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.27" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
