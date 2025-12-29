@@ -34,15 +34,15 @@ public class CartAdapter  extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CartAdapter.ViewHolder holder, int position) {
-        if (cart != null && cart.getItemUserlist() != null && position < cart.getItemUserlist().size()) {
-            Item item_cart = cart.getItemUserlist().get(position);
+        if (cart != null && cart.getItemList() != null && position < cart.getItemList().size()) {
+            Item item_cart = cart.getItemList().get(position);
             holder.bind(item_cart);
         }
     }
 
     @Override
     public int getItemCount() {
-        return (cart != null && cart.getItemUserlist() != null) ? cart.getItemUserlist().size() : 0;
+        return (cart != null && cart.getItemList() != null) ? cart.getItemList().size() : 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

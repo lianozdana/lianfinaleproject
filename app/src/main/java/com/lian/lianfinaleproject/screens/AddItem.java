@@ -52,6 +52,8 @@ public class AddItem extends AppCompatActivity {
     // constant to compare
     // the activity result code
     int SELECT_PICTURE = 200;
+    String type, groupId;
+
 
 
     @Override
@@ -64,6 +66,14 @@ public class AddItem extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        type = getIntent().getStringExtra("type");
+
+        if (type == "userCart") {
+
+        } else {
+            groupId = getIntent().getStringExtra("groupId");
+        }
 
         InitViews();
 
@@ -137,60 +147,71 @@ public class AddItem extends AppCompatActivity {
 
                     String currentUserId = SharedPreferencesUtil.getUserId(AddItem.this);
 
-                    assert currentUserId != null;
-                    databaseService.updateUser(currentUserId, new UnaryOperator<User>() {
-                        @Override
-                        public User apply(User currentUser) {
-                            if (currentUser == null) {
-                                return null;
-                            }
+                    if (type.equals("userCart")) {
+                        AddItemToUserCart(currentUserId, newItem);
+                    } else {
+//                        AddItemToGroupCart(groupId, newItem);
+                    }
 
-                            Cart userCart = currentUser.getCart();
-                            if (userCart == null) {
-                                userCart = new Cart();
-                            }
-
-                            userCart.addItem(newItem);
-
-                            currentUser.setCart(userCart);
-
-                            return currentUser;
-                        }
-                    }, new DatabaseService.DatabaseCallback<Void>() {
-                        @Override
-                        public void onCompleted(Void object) {
-                            Log.d("TAG", "Item added successfully");
-                            Toast.makeText(AddItem.this, "Item added successfully", Toast.LENGTH_SHORT).show();
-                            /// clear the input fields after adding the item for the next item
-                            Log.d("TAG", "Clearing input fields");
-
-                            Toast.makeText(AddItem.this, "המוצר נוסף בהצלחה!", Toast.LENGTH_SHORT).show();
-
-                            finish();
-                        }
-
-                        @Override
-                        public void onFailed(Exception e) {
-                            Log.e("TAG", "Failed to add item", e);
-                            Toast.makeText(AddItem.this, "Failed to add food", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-
-                    databaseService.createNewItem(newItem, new DatabaseService.DatabaseCallback<Void>() {
-                        @Override
-                        public void onCompleted(Void aVoid) {
-
-                        }
-
-                        @Override
-                        public void onFailed(Exception e) {
-
-                        }
-                    });
+                    AddItemToDatabase(newItem);
                 }
 
 
+            }
+        });
+    }
+
+    private void AddItemToDatabase(Item newItem) {
+        databaseService.createNewItem(newItem, new DatabaseService.DatabaseCallback<Void>() {
+            @Override
+            public void onCompleted(Void aVoid) {
+
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+
+            }
+        });
+    }
+
+    private void AddItemToUserCart(String currentUserId, Item newItem) {
+        assert currentUserId != null;
+        databaseService.updateUser(currentUserId, new UnaryOperator<User>() {
+            @Override
+            public User apply(User currentUser) {
+                if (currentUser == null) {
+                    return null;
+                }
+
+                Cart userCart = currentUser.getCart();
+                if (userCart == null) {
+                    userCart = new Cart();
+                }
+
+                userCart.addItem(newItem);
+
+                currentUser.setCart(userCart);
+
+                return currentUser;
+            }
+        }, new DatabaseService.DatabaseCallback<Void>() {
+            @Override
+            public void onCompleted(Void object) {
+                Log.d("TAG", "Item added successfully");
+                Toast.makeText(AddItem.this, "Item added successfully", Toast.LENGTH_SHORT).show();
+                /// clear the input fields after adding the item for the next item
+                Log.d("TAG", "Clearing input fields");
+
+                Toast.makeText(AddItem.this, "המוצר נוסף בהצלחה!", Toast.LENGTH_SHORT).show();
+
+                finish();
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+                Log.e("TAG", "Failed to add item", e);
+                Toast.makeText(AddItem.this, "Failed to add food", Toast.LENGTH_SHORT).show();
             }
         });
     }

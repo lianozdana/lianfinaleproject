@@ -5,34 +5,35 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
+// Collection of items
 public class Cart {
-    protected List<Item> itemUserlist;
+    protected List<Item> itemList;
 
-    public Cart(List<Item> itemUserlist) {
-        this.itemUserlist = itemUserlist;
+    public Cart(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     public Cart() {
-        this.itemUserlist = new ArrayList<>();
+        this.itemList = new ArrayList<>();
     }
 
-    public List<Item> getItemUserlist() {
-        return itemUserlist;
+    public List<Item> getItemList() {
+        return itemList;
     }
 
-    public void setItemUserlist(List<Item> itemUserlist) {
-        this.itemUserlist = itemUserlist;
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     public void addItem(Item item) {
-        this.itemUserlist.add(item);
+        this.itemList.add(item);
     }
 
     @NonNull
     @Override
     public String toString() {
         return "Cart{" +
-                "itemUserlist=" + itemUserlist +
+                "itemUserlist=" + itemList +
                 '}';
     }
 }

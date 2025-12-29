@@ -12,9 +12,16 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.lian.lianfinaleproject.R;
+import com.lian.lianfinaleproject.model.Cart;
+import com.lian.lianfinaleproject.model.Group;
+import com.lian.lianfinaleproject.services.DatabaseService;
+import com.lian.lianfinaleproject.utils.SharedPreferencesUtil;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class choice_list_or_grouplist extends AppCompatActivity {
-Button btn_go_to_mylist, btn_my_grouplist, btn_new_grouplist, bth_go_to_grouplist;
+    Button btn_go_to_mylist, btn_my_grouplist, btn_new_grouplist, bth_go_to_grouplist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +53,32 @@ Button btn_go_to_mylist, btn_my_grouplist, btn_new_grouplist, bth_go_to_grouplis
     }
 
     public void btnNewGroupList(View view) {
-        Intent go=new Intent(choice_list_or_grouplist.this, CartActivity.class);
-        startActivity(go);
+        Group group = createNewGroup();
+        addGroupToDB(group);
+    }
+
+    // this is an example how to crate group:
+    private Group createNewGroup() {
+        String id = DatabaseService.getInstance().generateGroupId();
+        String managerId = SharedPreferencesUtil.getUserId(this);
+        int code = Group.generateGroupCode();
+        return new Group(id, managerId, new ArrayList<>(), new Cart(), code);
+    }
+
+    private void addGroupToDB(Group groupCart) {
+        DatabaseService.getInstance().createNewGroup(groupCart, new DatabaseService.DatabaseCallback<Void>() {
+            @Override
+            public void onCompleted(Void v) {
+                Intent intent = new Intent(choice_list_or_grouplist.this, Group_Activity.class);
+                intent.putExtra("id", groupCart.getId());
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailed(Exception e) {
+
+            }
+        });
     }
 
     public void btnGoToGroupList(View view) {

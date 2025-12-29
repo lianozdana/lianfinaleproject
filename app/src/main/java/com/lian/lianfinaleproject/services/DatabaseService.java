@@ -443,6 +443,10 @@ public class DatabaseService {
         getData(GROUPS_PATH + "/" + groupId, Group.class, callback);
     }
 
+    public void getGroupCart(@NotNull final String groupId, @NotNull final DatabaseCallback<Cart> callback) {
+        getData(GROUPS_PATH + "/" + groupId + "/cart", Cart.class, callback);
+    }
+
     /// get all the groups from the database
     ///
     /// @param callback the callback to call when the operation is completed
@@ -499,7 +503,7 @@ public class DatabaseService {
     /// @return void
     /// @see DatabaseCallback
     /// @see Cart
-    public void updateCart(@NotNull final Cart cart, String uid , @Nullable final DatabaseCallback<Void> callback) {
+    public void updateUserCart(@NotNull final Cart cart, String uid , @Nullable final DatabaseCallback<Void> callback) {
         writeData(USERS_PATH +"/" + uid+"/cart", cart, callback);
     }
 
@@ -513,8 +517,8 @@ public class DatabaseService {
     /// @return void
     /// @see DatabaseCallback
     /// @see Cart
-    public void getCart(String uid, @NotNull final DatabaseCallback<Cart> callback) {
-        getData( USERS_PATH+"/"+ uid+"/cart", Cart.class, callback);
+    public void getUserCart(String userId, @NotNull final DatabaseCallback<Cart> callback) {
+        getData( USERS_PATH+"/"+ userId+"/cart", Cart.class, callback);
     }
 
 

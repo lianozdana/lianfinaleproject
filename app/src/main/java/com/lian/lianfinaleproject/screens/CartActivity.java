@@ -85,14 +85,12 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
 
         // טען את הסל מהמסד
-        databaseService.getCart(uid, new DatabaseService.DatabaseCallback<Cart>() {
+        databaseService.getUserCart(uid, new DatabaseService.DatabaseCallback<Cart>() {
             @Override
             public void onCompleted(Cart resultCart) {
-                if (resultCart != null && resultCart.getItemUserlist() != null) {
-
-
+                if (resultCart != null && resultCart.getItemList() != null) {
                     Log.d("cart", resultCart.toString());
-                    cart.setItemUserlist(resultCart.getItemUserlist());
+                    cart.setItemList(resultCart.getItemList());
                     cartAdapter.notifyDataSetChanged();
 
                 }
@@ -112,6 +110,8 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent go=new Intent(CartActivity.this, AddItem.class);
+        go.putExtra("type", "userCart");
+//        go.putExtra("groupID", "bla"); // this need to be the group id
         startActivity(go);
 
     }

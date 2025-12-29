@@ -1,23 +1,27 @@
 package com.lian.lianfinaleproject.model;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
+import java.util.Random;
 
 public class Group {
     protected String id;
-    protected List<User> userlist;
-    protected List<Item> itemlist;
-    protected int code;
-    protected User manager;
-
-    public Group(String id, List<User> userlist, List<Item> itemlist, int code, User manager) {
-        this.id = id;
-        this.userlist = userlist;
-        this.itemlist = itemlist;
-        this.code = code;
-        this.manager = manager;
-    }
+    protected String managerId; // user manager id
+    protected List<String> userIdList; // list of user ids
+    protected Cart cart;
+    protected int code; // invite code
 
     public Group() {
+        cart = new Cart();
+    }
+
+    public Group(String id, String managerId, List<String> userIdList, Cart cart, int code) {
+        this.id = id;
+        this.managerId = managerId;
+        this.userIdList = userIdList;
+        this.cart = cart;
+        this.code = code;
     }
 
     public String getId() {
@@ -28,20 +32,28 @@ public class Group {
         this.id = id;
     }
 
-    public List<User> getUserlist() {
-        return userlist;
+    public String getManagerId() {
+        return managerId;
     }
 
-    public void setUserlist(List<User> userlist) {
-        this.userlist = userlist;
+    public void setManagerId(String managerId) {
+        this.managerId = managerId;
     }
 
-    public List<Item> getItemlist() {
-        return itemlist;
+    public List<String> getUserIdList() {
+        return userIdList;
     }
 
-    public void setItemlist(List<Item> itemlist) {
-        this.itemlist = itemlist;
+    public void setUserIdList(List<String> userIdList) {
+        this.userIdList = userIdList;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public int getCode() {
@@ -52,22 +64,26 @@ public class Group {
         this.code = code;
     }
 
-    public User getManager() {
-        return manager;
-    }
-
-    public void setManager(User manager) {
-        this.manager = manager;
-    }
-
+    @NonNull
     @Override
     public String toString() {
         return "Group{" +
                 "id='" + id + '\'' +
-                ", userlist=" + userlist +
-                ", itemlist=" + itemlist +
+                ", managerId='" + managerId + '\'' +
+                ", userIdList=" + userIdList +
+                ", cart=" + cart +
                 ", code=" + code +
-                ", manager=" + manager +
                 '}';
+    }
+
+    public void addItemToCart(Item item) {
+        this.cart.addItem(item);
+    }
+
+
+    public static int generateGroupCode() {
+        Random random = new Random();
+        int code = random.nextInt(1000);
+        return code;
     }
 }
