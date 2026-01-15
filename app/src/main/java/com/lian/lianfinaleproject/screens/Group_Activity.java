@@ -14,6 +14,8 @@ import com.lian.lianfinaleproject.R;
 public class Group_Activity extends AppCompatActivity {
 
     String groupID;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +27,8 @@ public class Group_Activity extends AppCompatActivity {
             return insets;
         });
 
-        groupID = getIntent().getStringExtra("id");
-        assert groupID != null;
 
 
-        Toast.makeText(Group_Activity.this, "Group Created: " + groupID, Toast.LENGTH_SHORT).show();
 
     }
 }

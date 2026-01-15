@@ -53,17 +53,21 @@ public class choice_list_or_grouplist extends AppCompatActivity {
     }
 
     public void btnNewGroupList(View view) {
-        Group group = createNewGroup();
-        addGroupToDB(group);
+        Intent go=new Intent(choice_list_or_grouplist.this, CreateNewGroup.class);
+        startActivity(go);
+     //   Group group = createNewGroup();
+      //  addGroupToDB(group);
     }
 
     // this is an example how to crate group:
-    private Group createNewGroup() {
-        String id = DatabaseService.getInstance().generateGroupId();
-        String managerId = SharedPreferencesUtil.getUserId(this);
-        int code = Group.generateGroupCode();
-        return new Group(id, managerId, new ArrayList<>(), new Cart(), code);
-    }
+  //  private Group createNewGroup() {
+
+
+      //  String id = DatabaseService.getInstance().generateGroupId();
+       // String managerId = SharedPreferencesUtil.getUserId(this);
+     //   int code = Group.generateGroupCode();
+    //   return new Group(id, managerId, new ArrayList<>(), new Cart(), code);
+ //   }
 
     private void addGroupToDB(Group groupCart) {
         DatabaseService.getInstance().createNewGroup(groupCart, new DatabaseService.DatabaseCallback<Void>() {
@@ -87,4 +91,8 @@ public class choice_list_or_grouplist extends AppCompatActivity {
     }
 
 
+    public void btn_go_to_profile(View view) {
+        Intent go=new Intent(choice_list_or_grouplist.this, UserListActivity.class);
+        startActivity(go);
+    }
 }

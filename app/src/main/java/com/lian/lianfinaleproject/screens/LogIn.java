@@ -77,6 +77,8 @@ public class LogIn extends AppCompatActivity {
                 editor.putString("email", emailUserInput);
                 editor.putString("password", passwordUserInput);
                 editor.commit();
+
+
             }
 
             @Override

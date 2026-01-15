@@ -26,4 +26,148 @@
             android:layout_marginTop="10dp"
             app:srcCompat="@drawable/logowhite" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="237dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="דף המנהל"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/btn_go_to_mylist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnGoToMyList"
+
+        android:text="הרשימה שלי"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/btn_my_grouplist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="75dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnMyGroupList"
+
+        android:text="הרשימות המשותפות שלי"
+
+        app:layout_constraintEnd_toStartOf="@+id/btn_new_grouplist"
+        app:layout_constraintStart_toEndOf="@+id/btn_go_to_mylist"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/gg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00BCD4"
+
+        android:onClick="btnMyGroupList"
+        android:text="הרשימות המשותפות שלי"
+        app:layout_constraintEnd_toEndOf="@+id/btn_new_grouplist"
+        app:layout_constraintTop_toBottomOf="@+id/btn_new_grouplist" />
+
+    <Button
+        android:id="@+id/btn_new_grouplist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#00BCD4"
+
+        android:onClick="btnNewGroupList"
+        android:text="צור רשימה משותפת חדשה"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/bth_go_to_grouplist"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00BCD4"
+        android:onClick="btnGoToGroupList"
+
+        android:text=" היכנס לרשימה משותפת קיימת"
+
+        app:layout_constraintStart_toStartOf="@+id/btn_go_to_mylist"
+        app:layout_constraintTop_toBottomOf="@+id/btn_go_to_mylist" />
+
+    <Button
+        android:id="@+id/btn_user_list"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+
+        android:backgroundTint="#00BCD4"
+
+        android:onClick="btnuserlist"
+        android:text="רשימת המשתמשים באפליקציה"
+        app:layout_constraintEnd_toStartOf="@+id/gg"
+        app:layout_constraintHorizontal_bias="0.294"
+        app:layout_constraintStart_toEndOf="@+id/bth_go_to_grouplist"
+        app:layout_constraintTop_toBottomOf="@+id/btn_my_grouplist" />
+
+    <Button
+        android:id="@+id/btn_go_back"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/common_full_open_on_phone"
+        android:backgroundTint="#00BCD4"
+        android:onClick="goback"
+        android:text=""
+        android:textColor="#00BCD4"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="492dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="492dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="563dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="196dp"
+        tools:layout_editor_absoluteY="563dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

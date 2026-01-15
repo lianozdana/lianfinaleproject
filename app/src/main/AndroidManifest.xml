@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LianFinaleProject">
         <activity
+            android:name=".screens.CreateNewGroup"
+            android:exported="false" />
+        <activity
+            android:name=".screens.UserListActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.Group_Activity"
             android:exported="false" />
         <activity

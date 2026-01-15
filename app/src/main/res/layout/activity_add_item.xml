@@ -35,6 +35,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="הוספת פריטים לעגלה"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />

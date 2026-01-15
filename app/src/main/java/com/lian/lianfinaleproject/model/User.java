@@ -17,6 +17,17 @@ public class User {
         this.cart = new Cart();
     }
 
+
+
+    public User(String id, String fname, String lname, String phone, String email, String password) {
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+
+    }
     public User(String id, String fname, String lname, String phone, String email, String password, Cart cart) {
         this.id = id;
         this.fname = fname;
@@ -26,6 +37,7 @@ public class User {
         this.password = password;
         this.cart = cart;
     }
+
 
 
     public String getId() {

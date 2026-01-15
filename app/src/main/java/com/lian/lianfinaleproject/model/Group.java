@@ -7,8 +7,10 @@ import java.util.Random;
 
 public class Group {
     protected String id;
-    protected String managerId; // user manager id
-    protected List<String> userIdList; // list of user ids
+
+    protected  String name;
+    protected User manager; // user manager id
+    protected List<User> userList; // list of user ids
     protected Cart cart;
     protected int code; // invite code
 
@@ -16,12 +18,21 @@ public class Group {
         cart = new Cart();
     }
 
-    public Group(String id, String managerId, List<String> userIdList, Cart cart, int code) {
+    public Group(String id, String name, User manager, List<User> userList, Cart cart, int code) {
         this.id = id;
-        this.managerId = managerId;
-        this.userIdList = userIdList;
+        this.name = name;
+        this.manager = manager;
+        this.userList = userList;
         this.cart = cart;
         this.code = code;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     public String getId() {
@@ -32,20 +43,12 @@ public class Group {
         this.id = id;
     }
 
-    public String getManagerId() {
-        return managerId;
+    public User getManager() {
+        return manager;
     }
 
-    public void setManagerId(String managerId) {
-        this.managerId = managerId;
-    }
-
-    public List<String> getUserIdList() {
-        return userIdList;
-    }
-
-    public void setUserIdList(List<String> userIdList) {
-        this.userIdList = userIdList;
+    public void setManager(User manager) {
+        this.manager = manager;
     }
 
     public Cart getCart() {
@@ -64,26 +67,35 @@ public class Group {
         this.code = code;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id='" + id + '\'' +
-                ", managerId='" + managerId + '\'' +
-                ", userIdList=" + userIdList +
-                ", cart=" + cart +
-                ", code=" + code +
-                '}';
-    }
+
 
     public void addItemToCart(Item item) {
         this.cart.addItem(item);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public static int generateGroupCode() {
         Random random = new Random();
         int code = random.nextInt(1000);
         return code;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", manager=" + manager +
+                ", userList=" + userList +
+                ", cart=" + cart +
+                ", code=" + code +
+                '}';
     }
 }
